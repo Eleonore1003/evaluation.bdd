@@ -114,3 +114,24 @@ VALUES
     ('2', 'Lefebvre', 'Michel'),
     ('3', 'Roux', 'Louis'),
     ('4', 'Dupuis', 'Hugo');
+
+
+--Créer table réservation 
+DROP TABLE IF EXISTS 'reservation';
+CREATE TABLE reservation (
+    id_reservation INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    paiement VARCHAR (100) NOT NULL,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id),
+    FOREIGN KEY (prix_id) REFERENCES prix(id),
+    FOREIGN KEY (seance_id) REFERENCES seance(id)
+)
+ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+--Valeurs réservation 
+INSERT INTO reservation 
+VALUES 
+    ('1', 'CB'),
+    ('2', 'CB'),
+    ('3', 'CB'),
+    ('4', 'CB');
+
