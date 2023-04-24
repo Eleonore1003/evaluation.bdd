@@ -135,3 +135,24 @@ VALUES
     ('3', 'CB'),
     ('4', 'CB');
 
+
+--Créer table prix 
+DROP TABLE IF EXISTS 'prix';
+CREATE TABLE prix (
+    id_prix INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    tarif FLOAT NOT NULL,
+    nom VARCHAR (100) NOT NULL,
+    FOREIGN KEY (reservation_id) REFERENCES reservation(id)
+)
+ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+--Valeurs prix 
+INSERT INTO prix 
+VALUES 
+    ('9.20', 'Plein Tarif'),
+    ('7.60', 'Etudiant'),
+    ('5.90', 'Moins de 14 ans');
+
+
+
+
