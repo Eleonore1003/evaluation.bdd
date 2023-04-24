@@ -42,3 +42,25 @@ VALUES
     ('6', '2023-03-10 17:30:00'),
     ('7', '2023-06-21 14:45:00');
 
+--Créer table salle 
+DROP TABLE IF EXISTS 'salle';
+CREATE TABLE salle (
+    id_salle INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    place INT(5) NOT NULL,
+    numSalle INT(5) NOT NULL,
+    FOREIGN KEY (seance_id) REFERENCES seance(id)
+)
+ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+--Valeurs salle 
+INSERT INTO salle 
+VALUES 
+    ('1', '300', 'n°10'),
+    ('2', '250', 'n°03'),
+    ('3', '125', 'n°05'),
+    ('4', '105', 'n°15'),
+    ('5', '350', 'n°08'),
+    ('6', '215', 'n°06'),
+    ('7', '175', 'n°12');
+
+
