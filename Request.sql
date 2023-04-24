@@ -154,5 +154,26 @@ VALUES
     ('5.90', 'Moins de 14 ans');
 
 
+--Créer table utilisateur 
+DROP TABLE IF EXISTS 'utilisateur';
+CREATE TABLE utilisateur (
+    id_utilisateur INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nom VARCHAR (200) NOT NULL,
+    prenom VARCHAR (200) NOT NULL,
+    email UNIQUE,
+    age INT (3),
+    FOREIGN KEY (reservation_id) REFERENCES reservation(id)
+)
+ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+--Valeurs utilisateur
+INSERT INTO utilisateur 
+VALUES 
+    ('1', 'Dubois', 'Constance', 'constance.dubois@gamil.com', '22'),
+    ('2', 'Martin', 'Victoire', 'victoire.martin@gmail.com', '18'),
+    ('3', 'Dupuis', 'Philippine', 'pilippine.dupuis@gmail.com', '23'),
+    ('4', 'Dupond', 'Rémi', 'remi.dupond@gmail.com', '32'),
+    ('5', 'Dupont', 'Agathe', 'agathe.dupont@gmail.com', '28'),
+    ('6', 'Petit', 'Juliette', 'juliette.petit@gmail.com', '6');
 
 
