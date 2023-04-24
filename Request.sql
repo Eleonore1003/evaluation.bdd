@@ -95,4 +95,22 @@ VALUES
     ('7', 'Finch', '01:55:00');
 
 
+--Créer table adminnistrateur 
+DROP TABLE IF EXISTS 'administrateur';
+CREATE TABLE administrateur (
+    id_administrateur INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR (75) NOT NULL,
+    FOREIGN KEY (cinema_id) REFERENCES cinema(id),
+    FOREIGN KEY (film_id) REFERENCES film(id),
+    FOREIGN KEY (seance_id) REFERENCES seance(id)
+)
+ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
+--Valeurs administrateur 
+INSERT INTO administrateur 
+VALUES 
+    ('1', 'Martin', 'Robert'),
+    ('2', 'Lefebvre', 'Michel'),
+    ('3', 'Roux', 'Louis'),
+    ('4', 'Dupuis', 'Hugo');
