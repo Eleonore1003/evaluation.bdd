@@ -18,6 +18,7 @@ VALUES
     ('3', 'Les Pionniers Du Cinéma', '36 Rue Godefroy Cavaignac', '75011', 'Paris'),
     ('4', 'Pathé Alésia', '73 Av. du Général Leclerc', '75014', 'Paris')
 
+
 --Créer table seance
 DROP TABLE IF EXISTS 'seance';
 CREATE TABLE seance (
@@ -42,6 +43,12 @@ VALUES
     ('6', '2023-03-10 17:30:00'),
     ('7', '2023-06-21 14:45:00');
 
+--Trier par ordre croissant 
+SELECT *
+FROM seance 
+ORDER BY horaire ASC
+
+
 --Créer table salle 
 DROP TABLE IF EXISTS 'salle';
 CREATE TABLE salle (
@@ -62,5 +69,30 @@ VALUES
     ('5', '350', 'n°08'),
     ('6', '215', 'n°06'),
     ('7', '175', 'n°12');
+
+
+--Créer table film 
+DROP TABLE IF EXISTS 'film';
+CREATE TABLE film (
+    id_film INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nom VARCHAR (100) NOT NULL,
+    duree TIME DEFAULT NULL,
+    FOREIGN KEY (cinema_id) REFERENCES cinema(id),
+    FOREIGN KEY (seance_id) REFERENCES seance(id),
+    FOREIGN KEY (administateur_id) REFERENCES administrateur(id)
+)
+ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+--Valeurs film
+INSERT INTO film 
+VALUES 
+    ('1', 'Athena', '01:39:00'),
+    ('2', 'Mascarade', '02:22:00'),
+    ('3', 'Luther : Soleil déchu', '02:09:00'),
+    ('4', 'Smile', '01:55:00'),
+    ('5', 'Tetris', '01:58:00'),
+    ('6', 'Jumeaux mais pas trop', '01:38:00'),
+    ('7', 'Finch', '01:55:00');
+
 
 
